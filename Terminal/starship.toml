@@ -1,0 +1,78 @@
+format = """
+$os\
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$python\
+$rust\
+$golang\
+$php\
+$memory_usage\
+$status\
+$line_break\
+$cmd_duration\
+$character"""
+
+[line_break]
+disabled = false
+
+[os]
+disabled = false
+style = "bold green"
+
+[os.symbols]
+Manjaro = " "
+
+[directory]
+style = "bold cyan"
+truncation_length = 3
+truncate_to_repo = true
+read_only = " 󰌾"
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+style = "bold red"
+format = '([\[$all_status$ahead_behind\]]($style) )'
+conflicted = "="
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+up_to_date = ""
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+
+[nodejs]
+symbol = " "
+style = "bold green"
+format = "via [$symbol($version )]($style)"
+
+[python]
+symbol = "🐍 "
+style = "bold yellow"
+format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[memory_usage]
+disabled = false
+threshold = 30 # Se muestra si usas más del 30% de RAM
+style = "bold dimmed white"
+symbol = "󰍛 "
+format = "at $symbol[$ram]($style) "
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+[cmd_duration]
+min_time = 500
+show_milliseconds = true
+format = "took [$duration]($style) "
+style = "green"
